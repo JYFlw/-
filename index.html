@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大麦网</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .menu {
+            display: flex;
+        }
+
+        .menu li {
+            padding: 5px 20px;
+            margin: 0 20px;
+            border-radius: 3px;
+        }
+
+        .menu li.active {
+            background-color: orangered;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" style="width: 1000px; border:1px solid red; margin: 100px auto">
+        <div class="menu">
+            <li>城市：</li>
+            <li @click="activeCityIndex=i" :class='{active: i===activeCityIndex}' v-for="(item,i) in cityList">
+                {{item.name}}</li>
+        </div>
+        <div class="menu">
+            <li>食物：</li>
+            <li @click="activeFoodIndex=i" :class='{active: i===activeFoodIndex}' v-for="(item,i) in foodList">
+                {{item.name}}</li>
+        </div>
+        <div class="menu">
+            <li>城市：</li>
+            <li @click="activeTypeIndex=i" :class='{active: i===activeTypeIndex}' v-for="(item,i) in TypeList">
+                {{item.name}}</li>
+        </div>
+        <div class="show" style="display: flex;padding: 20px;">
+            <li>
+                <img style="height: 200px; width: 150px;"
+                    src="https://img.alicdn.com/bao/uploaded/i1/2251059038/O1CN01fsB7Mj2GdSFZs03TV_!!2-item_pic.png_q60.jpg_.webp"
+                    alt="">
+            </li>
+            <div style="padding: 20px;">
+                <li>bb</li>
+                <li>cc</li>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // vue.config.procductionTip = false
+
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    activeCityIndex: 0,
+                    activeFoodIndex: 1,
+                    activeTypeIndex: 0,
+                    cityList: [{
+                            id: 0,
+                            name: '上海'
+                        },
+                        {
+                            id: 1,
+                            name: '杭州'
+                        },
+                        {
+                            id: 0,
+                            name: '嘉兴'
+                        },
+                        {
+                            id: 0,
+                            name: '北京'
+                        },
+                    ],
+                    foodList: [{
+                            id: 0,
+                            name: '大白鸡'
+                        },
+                        {
+                            id: 1,
+                            name: '野菜'
+                        },
+                        {
+                            id: 0,
+                            name: '烧麦'
+                        },
+                        {
+                            id: 0,
+                            name: '馒头'
+                        },
+                    ],
+                    TypeList: [{
+                            id: 0,
+                            name: '演唱会'
+                        },
+                        {
+                            id: 1,
+                            name: '体育比赛'
+                        },
+                        {
+                            id: 0,
+                            name: '喜剧'
+                        },
+                        {
+                            id: 0,
+                            name: '戏剧'
+                        },
+                    ],
+                    showList: [{
+                        id: 0,
+                        artist: ' 2020 ChinaJoy中国国际数码展览会',
+                        place: '上海新国际博览中心',
+                        img: 'https://img.alicdn.com/bao/uploaded/https://img.alicdn.com/imgextra/i2/2251059038/O1CN01EUbq5S2GdSFUwzxmi_!!2251059038.jpg_q60.jpg_.webp',
+                    }]
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
